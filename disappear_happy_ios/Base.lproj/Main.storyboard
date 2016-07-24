@@ -1,25 +1,103 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sBS-AJ-fEN">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--消消乐iOS-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GameHomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRE-1C-NFf">
+                                <rect key="frame" x="128" y="268" width="64" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="开始游戏"/>
+                                <connections>
+                                    <action selector="startGameAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kOr-yu-Vmi"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XRE-1C-NFf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Izl-nD-6ym"/>
+                            <constraint firstItem="XRE-1C-NFf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NVQ-87-Ced"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="消消乐iOS" id="RkG-Rl-UwE"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="ubF-Ek-shr" kind="show" identifier="goto_game_interface" id="Vmd-Rg-MOn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="807" y="129"/>
+        </scene>
+        <!--开始游戏-->
+        <scene sceneID="1sH-kL-x3h">
+            <objects>
+                <viewController id="ubF-Ek-shr" customClass="GameMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F2t-av-y5l"/>
+                        <viewControllerLayoutGuide type="bottom" id="3ba-2Q-YhL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qa7-si-zi9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xT0-lG-WA1" customClass="GameMapView">
+                                <rect key="frame" x="0.0" y="124" width="320" height="320"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xT0-lG-WA1" secondAttribute="height" multiplier="1:1" id="zqh-mS-AOL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xT0-lG-WA1" firstAttribute="centerY" secondItem="qa7-si-zi9" secondAttribute="centerY" id="6Jg-1E-kM3"/>
+                            <constraint firstItem="xT0-lG-WA1" firstAttribute="leading" secondItem="qa7-si-zi9" secondAttribute="leading" id="Lcn-4U-RDu"/>
+                            <constraint firstAttribute="trailing" secondItem="xT0-lG-WA1" secondAttribute="trailing" id="dwA-uS-akw"/>
+                            <constraint firstItem="xT0-lG-WA1" firstAttribute="centerX" secondItem="qa7-si-zi9" secondAttribute="centerX" id="wSB-6g-fzz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="开始游戏" id="pgK-7K-J9R"/>
+                    <connections>
+                        <outlet property="mapView" destination="xT0-lG-WA1" id="bPL-rl-y94"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="isD-gk-cTU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1267" y="129"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ePS-lH-e9Y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sBS-AJ-fEN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ose-Jp-4jM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="JNm-q1-tLv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p4H-MQ-Zub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="387" y="129"/>
         </scene>
     </scenes>
 </document>

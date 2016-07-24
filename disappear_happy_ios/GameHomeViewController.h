@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GameHomeViewController.h
 //  disappear_happy_ios
 //
 //  Created by Lili on 16/7/23.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface GameHomeViewController : UIViewController
 
 @end
-
