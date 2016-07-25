@@ -32,7 +32,7 @@ Box createBox(Color color, DHPoint point, bool visible)
 Box *copyBox(Box *srcBox, const Box *desBox)
 {
     srcBox->boxColor = desBox->boxColor;
-    srcBox->point = desBox->point;
+//    srcBox->point = desBox->point;
     srcBox->visible = desBox->visible;
     srcBox->foundFlag = desBox->foundFlag;
     

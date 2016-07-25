@@ -13,6 +13,8 @@
 #import "Core/DHMap.h"
 
 
+#define Debug   (0)
+
 
 void alertMessage(String msg, MsgCode code)
 {
@@ -54,10 +56,13 @@ void alertMessage(String msg, MsgCode code)
 
 - (void)layoutMapUI:(Map)map
 {
-    CGSize size = self.bounds.size;
+    CGSize size = [UIScreen mainScreen].bounds.size;
     GameSettingManager *manager = [GameSettingManager settingManager];
     //计算方块的宽度
     CGFloat boxSize = (size.width - ((map.rect.size.width + 1) * manager.boxSpacing)) / map.rect.size.width;
+#if Debug
+    printf("----------------------------------\n");
+#endif
     for (int y = 0; y < map.rect.size.height; y++)
     {
         for (int x = 0; x < map.rect.size.width; x++)
@@ -71,8 +76,17 @@ void alertMessage(String msg, MsgCode code)
             [boxView addTarget:self action:@selector(clickBox:) forControlEvents:UIControlEventTouchUpInside];
             //添加
             [self addSubview:boxView];
+#if Debug
+            printf("{%d , %d}",box->point.x, box->point.y);
+#endif
         }
+#if Debug
+        printf("\n");
+#endif
     }
+#if Debug
+    printf("----------------------------------\n");
+#endif
 }
 
 - (void)clickBox:(BoxView *)boxView

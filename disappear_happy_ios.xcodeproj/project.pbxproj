@@ -292,6 +292,7 @@
 				TargetAttributes = {
 					220146EB1D43B54E00D83FE0 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6S88C5NHSC;
 					};
 					220147071D43B54E00D83FE0 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -511,7 +512,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = disappear_happy_ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Lili.disappear-happy-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -522,7 +525,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = disappear_happy_ios/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Lili.disappear-happy-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -594,6 +599,7 @@
 				2201471E1D43B54E00D83FE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2201471F1D43B54E00D83FE0 /* Build configuration list for PBXNativeTarget "disappear_happy_iosTests" */ = {
 			isa = XCConfigurationList;
@@ -602,6 +608,7 @@
 				220147211D43B54E00D83FE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		220147221D43B54E00D83FE0 /* Build configuration list for PBXNativeTarget "disappear_happy_iosUITests" */ = {
 			isa = XCConfigurationList;
@@ -610,6 +617,7 @@
 				220147241D43B54E00D83FE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
