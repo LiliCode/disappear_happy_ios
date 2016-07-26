@@ -118,6 +118,7 @@ void initMap(Map map)
             int color_index = rand() % (sizeof(colors) / sizeof(color_function));
             //创建box
             Box box = createBox(colors[color_index](), pointMake(col, row), true);
+            box.tag = (map.rect.size.width * row) + col;    //设置tag
             *(*(map.map_array + row) + col) = box;
         }
     }
@@ -188,6 +189,30 @@ void printMap(Map map)
     }
 }
 
+Box getBox(Map map, const unsigned long tag)
+{
+    Box box = {};
+    bool flag = false;
+    for(int i = 0; i < map.rect.size.height; i++)
+    {
+        for(int j = 0; j < map.rect.size.width; j++)
+        {
+            box = *(*(map.map_array + i) + j);
+            if (box.tag == tag)
+            {
+                flag = true;
+                break;
+            }
+        }
+        
+        if (flag)
+        {
+            break;
+        }
+    }
+    
+    return box;
+}
 
 void clickMapPoint(Map map, DHPoint point)
 {

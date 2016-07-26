@@ -78,6 +78,16 @@ extern void deleteMap(Map map);
 extern void clickMapPoint(Map map, DHPoint point);
 
 /**
+ *  通过tag值获取box
+ *
+ *  @param map 当前地图
+ *  @param tag 传入tag获取box
+ *
+ *  @return 返回box
+ */
+extern Box getBox(Map map, const unsigned long tag);
+
+/**
  *  打印地图
  */
 extern void printMap(Map map);

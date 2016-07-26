@@ -19,10 +19,11 @@
 struct box
 {
     //基本属性
-    Color boxColor; //颜色
-    DHPoint point;    //点坐标
-    bool visible;   //是否可见
-    bool foundFlag; //flag表示用于是否已经查找过
+    Color boxColor;     //颜色
+    DHPoint point;      //点坐标
+    bool visible;       //是否可见
+    bool foundFlag;     //flag表示用于是否已经查找过
+    unsigned int tag;   //tag标示
 };
 
 typedef struct box Box;
