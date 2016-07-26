@@ -489,6 +489,53 @@ int getEmptyCol(Map map, int lowerLimit, int upperLimit)
 }
 
 
+bool isGameover(Map map)
+{
+    bool gameover = true;
+    bool endOfline = false;
+    //还剩下的列最后一列编号
+    int col = map.rect.size.width;
+    for (int py = map.rect.size.height-1; py >= 0; py--)
+    {
+        for (int px = 0; px < col; px++)
+        {
+            Box *box = *(map.map_array + py) + px;
+            
+            if (py != map.rect.size.height-1 && !isVisible(box))
+            {
+                continue;
+            }
+            
+            if (py == map.rect.size.height-1 && !px && !isVisible(box))
+            {
+                //如果是左下角方块不可见，那么游戏结束
+                gameover = true;
+                goto END;
+            }
+            
+            //获取四个方向的相邻的方块类型 使用条件表达式判断是否在边界
+            ColorType topBoxColorType = py-1 >= 0? (*(map.map_array + py-1) + px)->boxColor.type : clr;
+            ColorType rightBoxColorType = px+1 <= map.rect.size.width-1? (*(map.map_array + py) + px+1)->boxColor.type : clr;
+            
+            if (box->boxColor.type == rightBoxColorType || box->boxColor.type == topBoxColorType)
+            {
+                gameover = false;
+                goto END;   //游戏未结束，直接结束判断
+            }
+            
+            if (!endOfline && rightBoxColorType == clr)
+            {
+                //最后一排，如果方块不可见，那么箱子就剩下px列，列标px
+                endOfline = true;
+                col = px;
+                break;
+            }
+        }
+    }
+    
+END:
+    return gameover;
+}
 
 
 

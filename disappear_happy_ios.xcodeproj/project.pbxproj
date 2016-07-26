@@ -26,6 +26,7 @@
 		220147641D43DACF00D83FE0 /* Color.c in Sources */ = {isa = PBXBuildFile; fileRef = 2201475C1D43DACF00D83FE0 /* Color.c */; };
 		220147651D43DACF00D83FE0 /* DHMap.c in Sources */ = {isa = PBXBuildFile; fileRef = 2201475E1D43DACF00D83FE0 /* DHMap.c */; };
 		220147661D43DACF00D83FE0 /* Rect.c in Sources */ = {isa = PBXBuildFile; fileRef = 220147601D43DACF00D83FE0 /* Rect.c */; };
+		220147691D47ACEA00D83FE0 /* UIAlertView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 220147681D47ACEA00D83FE0 /* UIAlertView+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		2201475F1D43DACF00D83FE0 /* DHMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHMap.h; path = Core/DHMap.h; sourceTree = "<group>"; };
 		220147601D43DACF00D83FE0 /* Rect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Rect.c; path = Core/Rect.c; sourceTree = "<group>"; };
 		220147611D43DACF00D83FE0 /* Rect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rect.h; path = Core/Rect.h; sourceTree = "<group>"; };
+		220147671D47ACEA00D83FE0 /* UIAlertView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Extension.h"; sourceTree = "<group>"; };
+		220147681D47ACEA00D83FE0 /* UIAlertView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,8 @@
 				220147461D43C24700D83FE0 /* GameSettingManager.m */,
 				220147481D43CCA000D83FE0 /* UIColor+BoxColor.h */,
 				220147491D43CCA000D83FE0 /* UIColor+BoxColor.m */,
+				220147671D47ACEA00D83FE0 /* UIAlertView+Extension.h */,
+				220147681D47ACEA00D83FE0 /* UIAlertView+Extension.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				220147431D43BD5200D83FE0 /* BoxView.m in Sources */,
 				220147471D43C24700D83FE0 /* GameSettingManager.m in Sources */,
 				220147641D43DACF00D83FE0 /* Color.c in Sources */,
+				220147691D47ACEA00D83FE0 /* UIAlertView+Extension.m in Sources */,
 				2201472D1D43B64500D83FE0 /* GameHomeViewController.m in Sources */,
 				220147401D43BCB000D83FE0 /* GameMapView.m in Sources */,
 				2201474A1D43CCA000D83FE0 /* UIColor+BoxColor.m in Sources */,

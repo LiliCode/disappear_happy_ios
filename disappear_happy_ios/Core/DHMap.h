@@ -88,6 +88,16 @@ extern void clickMapPoint(Map map, DHPoint point);
 extern Box getBox(Map map, const unsigned long tag);
 
 /**
+ *  游戏是否结束
+ *
+ *  @param map 当前地图
+ *
+ *  @return 返回bool值，true结束
+ */
+extern bool isGameover(Map map);
+
+
+/**
  *  打印地图
  */
 extern void printMap(Map map);

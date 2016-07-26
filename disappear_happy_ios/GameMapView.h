@@ -12,6 +12,10 @@
 @interface GameMapView : UIView
 
 
+/**
+ *  重置游戏
+ */
+- (void)resetGame;
 
 
 @end

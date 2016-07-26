@@ -71,7 +71,18 @@
                             <constraint firstItem="xT0-lG-WA1" firstAttribute="centerX" secondItem="qa7-si-zi9" secondAttribute="centerX" id="wSB-6g-fzz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="开始游戏" id="pgK-7K-J9R"/>
+                    <navigationItem key="navigationItem" title="开始游戏" id="pgK-7K-J9R">
+                        <barButtonItem key="leftBarButtonItem" title="退出" id="ruq-il-NEH">
+                            <connections>
+                                <action selector="quitGameAction:" destination="ubF-Ek-shr" id="ffu-pe-gOO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="ceQ-PF-NvY">
+                            <connections>
+                                <action selector="resetGameAction:" destination="ubF-Ek-shr" id="YBS-QW-SQf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="xT0-lG-WA1" id="bPL-rl-y94"/>
                     </connections>

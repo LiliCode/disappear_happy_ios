@@ -10,6 +10,7 @@
 #import "GameSettingManager.h"
 #import "BoxView.h"
 #import "UIColor+BoxColor.h"
+#import "UIAlertView+Extension.h"
 #import "Core/DHMap.h"
 
 
@@ -35,23 +36,25 @@ void alertMessage(String msg, MsgCode code)
 {
     [super awakeFromNib];
     
-    //创建地图数据
-    self.map = createMap(alertMessage);
-    //创建map UI
-    [self layoutMapUI:self.map];
+    [self initGame];
 }
 
 - (instancetype)init
 {
     if (self = [super init])
     {
-        //创建地图数据
-        self.map = createMap(alertMessage);
-        //创建map UI
-        [self layoutMapUI:self.map];
+        [self initGame];
     }
     
     return self;
+}
+
+- (void)initGame
+{
+    //创建地图数据
+    self.map = createMap(alertMessage);
+    //创建map UI
+    [self layoutMapUI:self.map];
 }
 
 - (void)layoutMapUI:(Map)map
@@ -86,6 +89,15 @@ void alertMessage(String msg, MsgCode code)
 #endif
 }
 
+/**
+ *  重置游戏
+ */
+- (void)resetGame
+{
+    [self removeAllSubviews];
+    [self initGame];
+}
+
 - (void)clickBox:(BoxView *)boxView
 {
     NSLog(@"location: {%d , %d}", boxView.location.x, boxView.location.y);
@@ -100,6 +112,11 @@ void alertMessage(String msg, MsgCode code)
     
     //重布局
     [self resetLayoutMap:self.map];
+    
+    if (isGameover(self.map))
+    {
+        [[UIAlertView alert:@"游戏结束!"] show];
+    }
 }
 
 
