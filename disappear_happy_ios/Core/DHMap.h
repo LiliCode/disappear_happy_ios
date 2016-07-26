@@ -15,7 +15,7 @@
 #include "Array.h"
 
 
-#define MAP_SIZE (8)
+#define MAP_SIZE (10)
 
 //消息码
 typedef enum

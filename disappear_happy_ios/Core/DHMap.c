@@ -109,7 +109,7 @@ void initMap(Map map)
     //随机种子
     srand((unsigned)time(NULL));
     //颜色
-    color_function colors[] = {redColor, yellowColor, blueColor};
+    color_function colors[] = {magentaColor, orangeColor, cyanColor, purpleColor, greenColor};
     
     for(int row = 0; row < map.rect.size.height; row++)
     {
