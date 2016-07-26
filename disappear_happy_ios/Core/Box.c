@@ -35,6 +35,7 @@ Box *copyBox(Box *srcBox, const Box *desBox)
 //    srcBox->point = desBox->point;
     srcBox->visible = desBox->visible;
     srcBox->foundFlag = desBox->foundFlag;
+    srcBox->tag = desBox->tag;
     
     return srcBox;
 }

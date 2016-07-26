@@ -56,10 +56,6 @@ void alertMessage(String msg, MsgCode code)
 
 - (void)layoutMapUI:(Map)map
 {
-    CGSize size = [UIScreen mainScreen].bounds.size;
-    GameSettingManager *manager = [GameSettingManager settingManager];
-    //计算方块的宽度
-    CGFloat boxSize = (size.width - ((map.rect.size.width + 1) * manager.boxSpacing)) / map.rect.size.width;
 #if Debug
     printf("----------------------------------\n");
 #endif
@@ -68,10 +64,11 @@ void alertMessage(String msg, MsgCode code)
         for (int x = 0; x < map.rect.size.width; x++)
         {
             BoxView *boxView = [[BoxView alloc] init];
-            boxView.frame = CGRectMake(manager.boxSpacing + (x*(boxSize+manager.boxSpacing)), manager.boxSpacing + (y*(boxSize+manager.boxSpacing)), boxSize, boxSize);
+            boxView.frame = [self boxViewFrameWithPoint:pointMake(x, y)];
             Box *box = *(map.map_array + y) + x;    //获取map中的方块
             boxView.location = box->point;  //设置位置
             boxView.color = box->boxColor;  //设置颜色
+            boxView.tag = box->tag; //设置tag
             //点击的事件
             [boxView addTarget:self action:@selector(clickBox:) forControlEvents:UIControlEventTouchUpInside];
             //添加
@@ -98,13 +95,37 @@ void alertMessage(String msg, MsgCode code)
         return;
     }
     
+    //点击
     clickMapPoint(self.map, boxView.location);
     
-    //删除全部方块
-    [self removeAllSubviews];
-    //重新布局
-    [self layoutMapUI:self.map];
+    //重布局
+    [self resetLayoutMap:self.map];
 }
+
+
+- (void)resetLayoutMap:(Map)map
+{
+    for (BoxView *boxView in self.subviews)
+    {
+        Box box = getBox(map, boxView.tag);
+        boxView.color = box.boxColor;
+        boxView.location = box.point;
+        [UIView animateWithDuration:.3 animations:^{
+            boxView.frame = [self boxViewFrameWithPoint:box.point];
+        }];
+    }
+}
+
+
+- (CGRect)boxViewFrameWithPoint:(DHPoint)point
+{
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    GameSettingManager *manager = [GameSettingManager settingManager];
+    //计算方块的宽度
+    CGFloat boxSize = (size.width - ((self.map.rect.size.width + 1) * manager.boxSpacing)) / self.map.rect.size.width;
+    return CGRectMake(manager.boxSpacing + (point.x*(boxSize+manager.boxSpacing)), manager.boxSpacing + (point.y*(boxSize+manager.boxSpacing)), boxSize, boxSize);
+}
+
 
 - (void)removeAllSubviews
 {

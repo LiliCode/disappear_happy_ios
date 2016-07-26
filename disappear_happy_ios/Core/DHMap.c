@@ -109,7 +109,7 @@ void initMap(Map map)
     //随机种子
     srand((unsigned)time(NULL));
     //颜色
-    color_function colors[] = {redColor, yellowColor, blueColor};
+    color_function colors[] = {magentaColor, orangeColor, cyanColor, purpleColor, greenColor};
     
     for(int row = 0; row < map.rect.size.height; row++)
     {
@@ -118,6 +118,7 @@ void initMap(Map map)
             int color_index = rand() % (sizeof(colors) / sizeof(color_function));
             //创建box
             Box box = createBox(colors[color_index](), pointMake(col, row), true);
+            box.tag = (map.rect.size.width * row) + col;    //设置tag
             *(*(map.map_array + row) + col) = box;
         }
     }
@@ -188,6 +189,30 @@ void printMap(Map map)
     }
 }
 
+Box getBox(Map map, const unsigned long tag)
+{
+    Box box = {};
+    bool flag = false;
+    for(int i = 0; i < map.rect.size.height; i++)
+    {
+        for(int j = 0; j < map.rect.size.width; j++)
+        {
+            box = *(*(map.map_array + i) + j);
+            if (box.tag == tag)
+            {
+                flag = true;
+                break;
+            }
+        }
+        
+        if (flag)
+        {
+            break;
+        }
+    }
+    
+    return box;
+}
 
 void clickMapPoint(Map map, DHPoint point)
 {
@@ -411,32 +436,35 @@ void fallBoxs(Map map, Array *boxLocations)
     
     //遇到空列整体左移
     //先找到空列
-//    while (1)
-//    {
-//       int emptyCol = getEmptyCol(map, minX, maxX--);
-//       if (emptyCol == NONE_COL || emptyCol == map.rect.size.width-1)
-//       {
-//           break;
-//       }
-//       //消去空行
-//       disappearEmptyCols(map, emptyCol);
-//    }
+    while (1)
+    {
+       int emptyCol = getEmptyCol(map, minX, maxX--);
+       if (emptyCol == NONE_COL || emptyCol == map.rect.size.width-1)
+       {
+           break;
+       }
+       //消去空行
+       disappearEmptyCols(map, emptyCol);
+    }
+    
+#if Debug
+    printMap(map);
+#endif
 }
 
 
 void disappearEmptyCols(Map map, const int col)
 {
-    for (int py = 0; py < (int)map.rect.size.height-1; py++)
+    for (int py = 0; py <= (int)map.rect.size.height-1; py++)
     {
-        Box *box = *(map.map_array + py) + col; //空行的方块
         for (int px = col+1; px <= (int)map.rect.size.width-1; px++)
         {
+            Box *srcBox = *(map.map_array + py) + px-1; //空行的方块
             Box *desBox = *(map.map_array + py) + px;   //被交换的方块
-            //目标箱子可见
-            //交换
+            //向左平移
             Box tempBox;
-            copyBox(&tempBox, box);
-            copyBox(box, desBox);
+            copyBox(&tempBox, srcBox);
+            copyBox(srcBox, desBox);
             copyBox(desBox, &tempBox);
         }
     }

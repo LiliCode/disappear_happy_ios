@@ -6,7 +6,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--消消乐iOS-->
+        <!--消消乐-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="GameHomeViewController" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                             <constraint firstItem="XRE-1C-NFf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NVQ-87-Ced"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="消消乐iOS" id="RkG-Rl-UwE"/>
+                    <navigationItem key="navigationItem" title="消消乐" id="RkG-Rl-UwE"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <segue destination="ubF-Ek-shr" kind="show" identifier="goto_game_interface" id="Vmd-Rg-MOn"/>
@@ -57,7 +57,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xT0-lG-WA1" customClass="GameMapView">
                                 <rect key="frame" x="0.0" y="124" width="320" height="320"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xT0-lG-WA1" secondAttribute="height" multiplier="1:1" id="zqh-mS-AOL"/>
                                 </constraints>

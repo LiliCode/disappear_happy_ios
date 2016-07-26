@@ -15,7 +15,7 @@
 #include "Array.h"
 
 
-#define MAP_SIZE (8)
+#define MAP_SIZE (10)
 
 //消息码
 typedef enum
@@ -76,6 +76,16 @@ extern void deleteMap(Map map);
  *  @param point 点击位置
  */
 extern void clickMapPoint(Map map, DHPoint point);
+
+/**
+ *  通过tag值获取box
+ *
+ *  @param map 当前地图
+ *  @param tag 传入tag获取box
+ *
+ *  @return 返回box
+ */
+extern Box getBox(Map map, const unsigned long tag);
 
 /**
  *  打印地图
