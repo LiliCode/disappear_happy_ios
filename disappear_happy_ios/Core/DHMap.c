@@ -411,32 +411,35 @@ void fallBoxs(Map map, Array *boxLocations)
     
     //遇到空列整体左移
     //先找到空列
-//    while (1)
-//    {
-//       int emptyCol = getEmptyCol(map, minX, maxX--);
-//       if (emptyCol == NONE_COL || emptyCol == map.rect.size.width-1)
-//       {
-//           break;
-//       }
-//       //消去空行
-//       disappearEmptyCols(map, emptyCol);
-//    }
+    while (1)
+    {
+       int emptyCol = getEmptyCol(map, minX, maxX--);
+       if (emptyCol == NONE_COL || emptyCol == map.rect.size.width-1)
+       {
+           break;
+       }
+       //消去空行
+       disappearEmptyCols(map, emptyCol);
+    }
+    
+#if Debug
+    printMap(map);
+#endif
 }
 
 
 void disappearEmptyCols(Map map, const int col)
 {
-    for (int py = 0; py < (int)map.rect.size.height-1; py++)
+    for (int py = 0; py <= (int)map.rect.size.height-1; py++)
     {
-        Box *box = *(map.map_array + py) + col; //空行的方块
         for (int px = col+1; px <= (int)map.rect.size.width-1; px++)
         {
+            Box *srcBox = *(map.map_array + py) + px-1; //空行的方块
             Box *desBox = *(map.map_array + py) + px;   //被交换的方块
-            //目标箱子可见
-            //交换
+            //向左平移
             Box tempBox;
-            copyBox(&tempBox, box);
-            copyBox(box, desBox);
+            copyBox(&tempBox, srcBox);
+            copyBox(srcBox, desBox);
             copyBox(desBox, &tempBox);
         }
     }
