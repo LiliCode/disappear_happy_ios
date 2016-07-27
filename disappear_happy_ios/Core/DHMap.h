@@ -74,8 +74,10 @@ extern void deleteMap(Map map);
  *
  *  @param map   地图
  *  @param point 点击位置
+ *
+ *  @param return 返回一次消除的成绩
  */
-extern void clickMapPoint(Map map, DHPoint point);
+extern long clickMapPoint(Map map, DHPoint point);
 
 /**
  *  通过tag值获取box

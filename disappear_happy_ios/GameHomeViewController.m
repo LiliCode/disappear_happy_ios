@@ -27,6 +27,10 @@
 }
 
 
+- (IBAction)gameSettingAction:(UIButton *)sender
+{
+    [self performSegueWithIdentifier:@"setting" sender:nil];
+}
 
 
 

@@ -12,7 +12,7 @@
 //格子间距
 @property (assign , nonatomic) double boxSpacing;
 //最大分数
-@property (assign , nonatomic) double maxScore;
+@property (assign , nonatomic) NSInteger maxScore;
 
 
 

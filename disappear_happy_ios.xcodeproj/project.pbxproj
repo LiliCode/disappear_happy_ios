@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02473C951D488D8200F0AE44 /* GameSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02473C941D488D8200F0AE44 /* GameSettingTableViewController.m */; };
+		02473C971D488F5200F0AE44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02473C961D488F5200F0AE44 /* LaunchScreen.xib */; };
+		02473C9B1D48946100F0AE44 /* loading.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02473C9A1D48946100F0AE44 /* loading.jpg */; };
 		220146F11D43B54E00D83FE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 220146F01D43B54E00D83FE0 /* main.m */; };
 		220146F41D43B54E00D83FE0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 220146F31D43B54E00D83FE0 /* AppDelegate.m */; };
 		220146FA1D43B54E00D83FE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220146F81D43B54E00D83FE0 /* Main.storyboard */; };
 		220146FD1D43B54E00D83FE0 /* disappear_happy_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 220146FB1D43B54E00D83FE0 /* disappear_happy_ios.xcdatamodeld */; };
 		220146FF1D43B54E00D83FE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 220146FE1D43B54E00D83FE0 /* Assets.xcassets */; };
-		220147021D43B54E00D83FE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 220147001D43B54E00D83FE0 /* LaunchScreen.storyboard */; };
 		2201470D1D43B54E00D83FE0 /* disappear_happy_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2201470C1D43B54E00D83FE0 /* disappear_happy_iosTests.m */; };
 		220147181D43B54E00D83FE0 /* disappear_happy_iosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 220147171D43B54E00D83FE0 /* disappear_happy_iosUITests.m */; };
 		2201472A1D43B5FB00D83FE0 /* GameMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 220147291D43B5FB00D83FE0 /* GameMapViewController.m */; };
@@ -47,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02473C931D488D8200F0AE44 /* GameSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingTableViewController.h; sourceTree = "<group>"; };
+		02473C941D488D8200F0AE44 /* GameSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingTableViewController.m; sourceTree = "<group>"; };
+		02473C961D488F5200F0AE44 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		02473C9A1D48946100F0AE44 /* loading.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loading.jpg; sourceTree = "<group>"; };
 		220146EC1D43B54E00D83FE0 /* disappear_happy_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = disappear_happy_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		220146F01D43B54E00D83FE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		220146F21D43B54E00D83FE0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,7 +60,6 @@
 		220146F91D43B54E00D83FE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		220146FC1D43B54E00D83FE0 /* disappear_happy_ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = disappear_happy_ios.xcdatamodel; sourceTree = "<group>"; };
 		220146FE1D43B54E00D83FE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		220147011D43B54E00D83FE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		220147031D43B54E00D83FE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		220147081D43B54E00D83FE0 /* disappear_happy_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = disappear_happy_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2201470C1D43B54E00D83FE0 /* disappear_happy_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = disappear_happy_iosTests.m; sourceTree = "<group>"; };
@@ -141,8 +146,9 @@
 				220146F21D43B54E00D83FE0 /* AppDelegate.h */,
 				220146F31D43B54E00D83FE0 /* AppDelegate.m */,
 				220146F81D43B54E00D83FE0 /* Main.storyboard */,
+				02473C961D488F5200F0AE44 /* LaunchScreen.xib */,
 				220146FE1D43B54E00D83FE0 /* Assets.xcassets */,
-				220147001D43B54E00D83FE0 /* LaunchScreen.storyboard */,
+				02473C9A1D48946100F0AE44 /* loading.jpg */,
 				220147031D43B54E00D83FE0 /* Info.plist */,
 				220146FB1D43B54E00D83FE0 /* disappear_happy_ios.xcdatamodeld */,
 				220146EF1D43B54E00D83FE0 /* Supporting Files */,
@@ -185,6 +191,8 @@
 				2201472C1D43B64500D83FE0 /* GameHomeViewController.m */,
 				220147281D43B5FB00D83FE0 /* GameMapViewController.h */,
 				220147291D43B5FB00D83FE0 /* GameMapViewController.m */,
+				02473C931D488D8200F0AE44 /* GameSettingTableViewController.h */,
+				02473C941D488D8200F0AE44 /* GameSettingTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -334,8 +342,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				220147021D43B54E00D83FE0 /* LaunchScreen.storyboard in Resources */,
+				02473C9B1D48946100F0AE44 /* loading.jpg in Resources */,
 				220146FF1D43B54E00D83FE0 /* Assets.xcassets in Resources */,
+				02473C971D488F5200F0AE44 /* LaunchScreen.xib in Resources */,
 				220146FA1D43B54E00D83FE0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +374,7 @@
 				220147431D43BD5200D83FE0 /* BoxView.m in Sources */,
 				220147471D43C24700D83FE0 /* GameSettingManager.m in Sources */,
 				220147641D43DACF00D83FE0 /* Color.c in Sources */,
+				02473C951D488D8200F0AE44 /* GameSettingTableViewController.m in Sources */,
 				220147691D47ACEA00D83FE0 /* UIAlertView+Extension.m in Sources */,
 				2201472D1D43B64500D83FE0 /* GameHomeViewController.m in Sources */,
 				220147401D43BCB000D83FE0 /* GameMapView.m in Sources */,
@@ -417,14 +427,6 @@
 				220146F91D43B54E00D83FE0 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		220147001D43B54E00D83FE0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				220147011D43B54E00D83FE0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

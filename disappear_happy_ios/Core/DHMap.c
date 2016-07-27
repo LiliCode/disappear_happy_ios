@@ -40,8 +40,10 @@ void foundBoxs(Map map, DHPoint touchPoint, DHPoint fromPoint);
  *
  *  @param map          游戏地图
  *  @param boxLocations 同种颜色箱子位置的集合
+ *
+ *  @param return 返回一次消除的成绩
  */
-void destroyBoxs(Map map, Array *boxLocations);
+long destroyBoxs(Map map, Array *boxLocations);
 
 /**
  *  箱子下落
@@ -103,6 +105,16 @@ void destroyBoxCallback(Map map, DHPoint location);
  - returns: 返回空
  */
 void initMap(Map map);
+
+/**
+ *  计算本次成绩
+ *
+ *  @param boxCount 消除的方块数
+ *
+ *  @return 返回成绩
+ */
+long computeScore(ArrayCount boxCount);
+
 
 void initMap(Map map)
 {
@@ -182,7 +194,7 @@ void printMap(Map map)
     {
         for(int j = 0; j < map.rect.size.width; j++)
         {
-            printf("%d ", (*(map.map_array + i) + j)->boxColor.type);
+            printf("%x ", (*(map.map_array + i) + j)->boxColor.type);
         }
         
         printf("\n");
@@ -214,13 +226,13 @@ Box getBox(Map map, const unsigned long tag)
     return box;
 }
 
-void clickMapPoint(Map map, DHPoint point)
+long clickMapPoint(Map map, DHPoint point)
 {
     //判断是否在点击范围内
     if (!rectContainsPoint(map.rect, point))
     {
         if (map.alert) map.alert("点击在地图区域外!", ClickOutsideRect);
-        return;
+        return 0;
     }
     
     //判断点击的box是否是无效的box
@@ -228,14 +240,14 @@ void clickMapPoint(Map map, DHPoint point)
     if (!isVisible(clickBox))
     {
         if (map.alert) map.alert("点击了无效方块!", ClickInvalid);
-        return;
+        return 0;
     }
     
     //如果点在地图中
     //找到同种颜色的箱子
     foundBoxs(map, point, point);
-    //销毁箱子
-    destroyBoxs(map, foundBoxList);
+    //销毁箱子 并返回一次消除成绩
+    return destroyBoxs(map, foundBoxList);
 }
 
 
@@ -324,8 +336,10 @@ void destroyBoxCallback(Map map, DHPoint location)
     invisible(box);
 }
 
-void destroyBoxs(Map map, Array *boxLocations)
+long destroyBoxs(Map map, Array *boxLocations)
 {
+    long score = 0;
+    
     //必须要用两个或两个以上的箱子才能消失
     if (boxLocations->count >= 2)
     {
@@ -340,6 +354,8 @@ void destroyBoxs(Map map, Array *boxLocations)
         
         //向下移动或向左移动填补空缺位置
         fallBoxs(map, boxLocations);
+        //计算本次成绩
+        score = computeScore(boxLocations->count);
         //删除数组保存的相同颜色方块的位置
         removeAllElement(boxLocations);
         
@@ -356,6 +372,17 @@ void destroyBoxs(Map map, Array *boxLocations)
         //删除数组全部元素
         removeAllElement(boxLocations);
     }
+    
+    return score;
+}
+
+long computeScore(ArrayCount boxCount)
+{
+    long score = 0;
+    
+    score = boxCount * (boxCount - 1);
+    
+    return score;
 }
 
 bool compareMax(int value1, int value2)

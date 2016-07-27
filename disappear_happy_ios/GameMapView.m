@@ -107,8 +107,12 @@ void alertMessage(String msg, MsgCode code)
         return;
     }
     
-    //点击
-    clickMapPoint(self.map, boxView.location);
+    //点击 并获取本次成绩
+    NSInteger score = clickMapPoint(self.map, boxView.location);
+    if(score && [self.delegate respondsToSelector:@selector(gameMapView:currentScore:)])
+    {
+        [self.delegate gameMapView:self currentScore:score];
+    }
     
     //重布局
     [self resetLayoutMap:self.map];

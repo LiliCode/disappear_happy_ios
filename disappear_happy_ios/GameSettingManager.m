@@ -46,13 +46,34 @@ static GameSettingManager *manager = nil;
 {
     if (self = [super init])
     {
-        self.maxScore = 0.0f;
+        self.maxScore = [self integerForKey:@"MaxScore"];
         self.boxSpacing = 1.0f;
     }
     
     return self;
 }
 
+
+- (void)setMaxScore:(NSInteger)maxScore
+{
+    _maxScore = maxScore;
+    //保存文件系统
+    [self setInteger:maxScore forKey:@"MaxScore"];
+}
+
+
+- (void)setInteger:(NSInteger)score forKey:(NSString *)key
+{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setInteger:score forKey:key];
+    [ud synchronize];
+}
+
+- (NSInteger)integerForKey:(NSString *)key
+{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    return [ud integerForKey:key];
+}
 
 @end
 
