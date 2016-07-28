@@ -131,9 +131,12 @@ void alertMessage(String msg, MsgCode code)
         Box box = getBox(map, boxView.tag);
         boxView.color = box.boxColor;
         boxView.location = box.point;
-        [UIView animateWithDuration:.3 animations:^{
+//        [UIView animateWithDuration:.3 animations:^{
+//            boxView.frame = [self boxViewFrameWithPoint:box.point];
+//        }];
+        [UIView animateWithDuration:.3 delay:0 usingSpringWithDamping:.5 initialSpringVelocity:0 options:0 animations:^{
             boxView.frame = [self boxViewFrameWithPoint:box.point];
-        }];
+        } completion:nil];
     }
 }
 

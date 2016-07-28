@@ -7,6 +7,8 @@
 //
 
 #import "GameSettingTableViewController.h"
+#import "GameSettingManager.h"
+#import "UIAlertView+Extension.h"
 
 @interface GameSettingTableViewController ()
 
@@ -34,7 +36,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -48,6 +50,19 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    switch (indexPath.row)
+    {
+        case 0:
+            [GameSettingManager settingManager].maxScore = 0;
+            [[UIAlertView alert:@"已清空!"] show];
+            break;
+            
+        case 1:  break;
+            
+        case 2:  break;
+            
+        default: break;
+    }
     
 }
 
