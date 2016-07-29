@@ -17,19 +17,20 @@
 #define Debug   (0)
 
 
-void alertMessage(String msg, MsgCode code)
-{
-    NSString *message = [NSString stringWithUTF8String:msg];
-    NSLog(@"callback msg -> %@  msg code -> %d\n", message, code);
-}
-
-
 @interface GameMapView ()
 @property (assign , nonatomic) Map map;
 
 @end
 
 @implementation GameMapView
+
+
+void alertMessage(String msg, MsgCode code)
+{
+    NSString *message = [NSString stringWithUTF8String:msg];
+    NSLog(@"callback msg -> %@  msg code -> %d\n", message, code);
+    
+}
 
 
 - (void)awakeFromNib

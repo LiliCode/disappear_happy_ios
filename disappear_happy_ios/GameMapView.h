@@ -20,10 +20,12 @@
 
 @property (weak , nonatomic) id<GameMapDelegate> delegate;
 
+
 /**
  *  重置游戏
  */
 - (void)resetGame;
+
 
 
 @end
