@@ -524,7 +524,7 @@ bool isGameover(Map map)
     int col = map.rect.size.width;
     for (int py = map.rect.size.height-1; py >= 0; py--)
     {
-        for (int px = 0; px < col; px++)
+        for (int px = 0; px <= col; px++)
         {
             Box *box = *(map.map_array + py) + px;
             
