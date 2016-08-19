@@ -90,6 +90,16 @@ extern long clickMapPoint(Map map, DHPoint point);
 extern Box getBox(Map map, const unsigned long tag);
 
 /**
+ *  通过点坐标获取方块
+ *
+ *  @param map   当前地图
+ *  @param point 点坐标
+ *
+ *  @return 返回点坐标对应的方块
+ */
+extern Box *getBoxWithPoint(Map map, const DHPoint point);
+
+/**
  *  游戏是否结束
  *
  *  @param map 当前地图

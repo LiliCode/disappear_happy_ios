@@ -69,7 +69,7 @@ void alertMessage(String msg, MsgCode code)
         {
             BoxView *boxView = [[BoxView alloc] init];
             boxView.frame = [self boxViewFrameWithPoint:pointMake(x, y)];
-            Box *box = *(map.map_array + y) + x;    //获取map中的方块
+            Box *box = getBoxWithPoint(map, pointMake(x, y));   //获取对应位置方块
             boxView.location = box->point;  //设置位置
             boxView.color = box->boxColor;  //设置颜色
             boxView.tag = box->tag; //设置tag

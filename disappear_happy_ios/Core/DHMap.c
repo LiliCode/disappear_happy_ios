@@ -226,6 +226,13 @@ Box getBox(Map map, const unsigned long tag)
     return box;
 }
 
+
+Box *getBoxWithPoint(Map map, const DHPoint point)
+{
+    return *(map.map_array + point.y) + point.x;
+}
+
+
 long clickMapPoint(Map map, DHPoint point)
 {
     //判断是否在点击范围内
